@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector Demo</title>
+    <script src ="js/jquery-3.4.1.js"></script>
+
+    <script>
+        jQuery(document).ready(function(){
+            //아래 것들은 line레벨로 준 것이 아니라 inline으로 특정 a에게만 준 것이기 때문에 글자에만 적용되었음
+            $('a[title]').css("color", "red"); //a[title] - a태그에 []속성이 있다면 의미, a안에 들어있는 속성[] 
+            $('a[href="http://www.naver.com"]').css("font-size", "3em"); //일치하면
+            $("a[href*='naver']").css('border', '1px dotted green'); //해당 값이 존재한다면
+            $("a[href^='mailto']").css({"text-decoration":"none", "cursor":"wait"}); //해당 속성이 특정 값으로 시작하면. cursor의 wait는 마우스를 올리면 wait모양
+            $("a[href$='org']").css("background-color", "yellow"); //해당 속성의 값이 특정 값으로 끝나면
+            $("a[title~='eng']").css("background-color", "pink"); // 공백으로 구분된 속성값 목록 중 하나가 주어진 값과 동일한 태그 선택
+            $("a[href |='http://www.nate']").css("background-color", "lime"); //해당 속성의 값으로 동일하거나, 그 값으로 시작하고 -로 연결되거나
+        });
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="http://www.naver.com">네이버</a></li>
+        <li><a href="mailto:aaa@aaa.com">Contact me</a></li>
+        <li><a href="http://nginx.org">Nginx</a></li>
+        <li><a href="ftp://file.naver.com">네이버 파일 서버</a></li>
+        <li><a href="http://www.nate-naver-daum.com">검색엔진</a></li>
+        <li><a href="http://www.sist.co.kr" title="kor eng jap">쌍용센터</a></li>
+    </ul>
+    
+</body>
+</html>

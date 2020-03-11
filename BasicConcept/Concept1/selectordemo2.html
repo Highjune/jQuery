@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector Filter Demo</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        //jQuery의 filter (CSS의 pseudo)
+    
+        $(document).ready(function(){
+
+
+            //:first, :last
+            // $("li:first").css("background-color", "red"); //jQuery의 규칙 : 선택자.메서드();
+            // $("li:last").css("background-color", "red"); 
+
+
+            //짝수:even(0도 포함), 홀수:odd. 0 1 2 3 4 5 ...순서임( 그래서 제일 처음것은 1이 아니라 0이므로 짝수
+            // $("li:even").css("background-color", "red"); 
+            // $("li:odd").css("background-color", "blue"); 
+
+
+            //eq(3n) - 3의 배수 , eq(2n) - 2의 배수, eq(3) - 3번째 ..등 다 가능
+            // $("li:eq(3)").css("background-color", "green");
+            // $("li:eq(2)+li").css("background-color", "green"); //위와 같다. (2)+li - 2와(자신은 포함X) 인접한 li
+            // $("li:eq(2)~li").css("background-color", "green"); // 2다음것(자신은 포함x) 나머지 ~li
+
+
+            $("li:lt(2)").css("background-color", "lime"); //li(2) 보다 작은 것들 다  (less than)
+            $("li:gt(2)").css("background-color", "yellow"); //gt(2) 보다 큰 것들 다 (greater than)
+        });
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>jQuery</li>
+        <li>Servlet</li>
+        <li>JSP</li>
+        <li>Ajax</li>
+        <li>Spring</li>
+    </ul>
+
+
+</body>
+</html>

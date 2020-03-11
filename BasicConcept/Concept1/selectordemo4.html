@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector Filter Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(":header").css("color", "blue"); //h태그에 다 적용
+
+            // $("body>p:first-child").css("color", "red"); //이렇게 하면 안됨. body의 첫번째 자식은 h이기 때문에 에러.     <p>부지런하자</p>에 적용하고자 한다면아래와 같이 해야 한다.
+            $("p:first-of-type").css("color", "red"); //p형제들 중에 first라고 해야지 <p>부지런하자</p>에 적용할 수 있다.
+            $('p:last-of-type').css("color", "green"); //p형제들 중에 last임
+         
+            $('p:nth-of-type(3)').css("background-color", "yellow"); // nth-of-type은 1부터
+            $('p:eq(3)').css("background-color", "orange"); // eq는 0부터. 같은 3번재이지만 nth-oftype과 다름. 
+        
+        });
+
+    </script>
+</head>
+<body>
+
+    <h1>성공하는 사람들의 7가지 습관</h1>
+    
+    <p>부지런하자</p>
+    <p>나에게정직하자</p>
+    <p>no라고말하자</p>
+    <p>나에게집중</p>
+    <p>설리게</p>
+    <p>매너리즘에빠지지말자</p>
+    <p>이끄는삶</p>
+    
+</body>
+</html>
+
+
+
+

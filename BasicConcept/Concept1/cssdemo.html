@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery CSS Demo</title>
+
+    <style>
+        /*밑에서 addClass하려고 여기서 클래스 만들어둠*/
+        
+        .red{   /*클래스*/
+            color:red; background-color:yellow;
+        }
+        .blue{
+            color:blue; background-color: lime;
+        }
+        .green{
+            color:green; background-color: red;
+        }
+
+    </style>
+
+    <script src = "js/jquery-3.4.1.js"></script> <!--사실 이 script는 미리 들어와 있어야 하니까 제일 위에 둬야 하고, 밑의 script는 body의 제일 끝에 놔둬도 된다.-->
+    
+    
+    <script>
+        $(document).ready(function(){
+            $('ul>li:first-child').addClass('red') //addClass하려면 미리 클래스가 만들어져있어야 한다. (위에 style에 .으로 .red클래스 만들어둠)
+              //각집(모든ul)의 첫째(li:first-child)에 클래스 부여
+            $('ul>li:last-child').addClass('blue')
+            //각집(모든ul)의 막내(li:first-child)에 클래스 부여
+            $('ul>li:only-child').addClass('green')
+            //각집(모든ul) 중에서 자식이 한 명인 곳만.
+        }); 
+    </script>
+
+
+
+</head>
+
+<body>
+            <!--
+            addClass
+            removeClass
+            이 2개를 합친 것이 toggleClass
+            -->
+    <ul>
+        <li>Oracle</li>
+        <li>MariaDB</li>
+    </ul>
+    <ul>
+        <li>JDBC</li>
+    </ul>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+    </ul>
+    
+</body>
+</html>

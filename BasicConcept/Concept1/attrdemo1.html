@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Attribute Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <style>
+        .red{ /*클래스*/
+            background-color: yellow; color: red; font-size:150%;
+        }
+    </style>
+    <script>
+
+//      .removeAttr() - html의 태그속성에 변화준 것을 제거
+//      image에 관해서 set과 get이 있다.
+//      key가 1개면 get 기능(그 속성값에 대해서)
+//      key가 2개면 set 기능
+        
+        $(document).ready(function(){
+
+            $('#add').click(function(){
+                $('input[type]').attr("disabled", "disabled")
+                .attr("size", "40").addClass("red").val("Hello, World"); //val = value
+            });
+
+            $('#remove').click(function(){
+                $("input[type]").removeAttr("disabled").removeAttr("size"). //input의 모든 타입(text든 button이든)에 적용
+                // $('#june').removeAttr("disabled").removeAttr("size"). // 밑에서 id="june"으로 주고 이런식으로 호출해도 됨
+                removeClass("red");
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div>
+        <button id="add">속성설정</button><button id = "remove">속성제거</button>
+    </div>
+    <input type="text" > <!--checked required 이런것들이 다 attribute임. 이것들을 제거-->
+    <!-- <input type="text" id="june"> 이렇게 id로 주고 두번쨰 메서드에서 #june으로 불러도 됨> -->
+
+</body>
+</html>

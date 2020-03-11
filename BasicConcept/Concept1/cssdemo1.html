@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery CSS Demo</title>
+
+    <style>
+        /*밑에서 addClass하려고 여기서 클래스 만들어둠*/
+        .red{
+            color:red; background-color:yellow;
+        }
+    </style>
+
+    <script src = "js/jquery-3.4.1.js"></script> <!--사실 이 script는 미리 들어와 있어야 하니까 제일 위에 둬야 하고, 밑의 script는 body의 제일 끝에 놔둬도 된다.-->
+    <script>
+        $(document).ready(function(){
+
+            $('button#add').click(function(){
+            // $('#add').click(function(){  //사실 위의 것은 이렇게 고쳐도 된다. ID는 단 1개뿐이므로              
+                $('ul>li:first-child').addClass('red');
+            });
+
+            $('button#remove').click(function(){
+                $('ul>li:first-child').removeClass('red');
+            });
+
+            $('button#toggle').click(function(){
+                $('ul>li:last-child').toggleClass('red'); //toggle - add와 remove포함. 한번 클릭할때마다 바뀜
+            });
+
+        }); 
+    </script>
+
+</head>
+
+<body>
+        <!--
+        addClass
+        removeClass
+        이 2개를 합친 것이 toggleClass
+        -->
+    <button id="add">AddClass</button>
+    <button id="remove">RemoveClass</button>
+    <button id="toggle">ToggleClass</button>
+    <ul>
+        <li>Oracle</li>
+        <li>MariaDB</li>
+    </ul>
+  
+</body>
+</html>

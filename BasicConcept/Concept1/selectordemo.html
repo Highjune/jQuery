@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector Demo</title>
+
+    <style>
+
+        *{
+            margin-top:0; 
+            margin-left:0;
+        }
+
+        body {
+            background-image : url("./images/pretty.jpg");
+            background-repeat: no-repeat;
+        }
+
+    </style>
+
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $('*').css({"margin-top":0, "margin-left":0}); //universal selector
+            // $('body').css("background-images", "url(images/pretty.jpg)"); //tag selector
+            //Q) 위 2줄은 무슨 의미? style에 있는 것만 있어도 되는데?
+
+
+            // $('h3').css("color", "blue").css("background-color", "yellow");  //본문에서 h3태그 만나면!이란 의미. css()는 스타일링을 주는 메서드(단일css, 복합css 2가지 있음). 이건 단일css
+            $('h3').css({"color":"blue", "background":"yellow"}); //복합 css태그 : {}이용. 여러개 한번에 적용할 때.
+            $("#myFavorites").css("list-style-type", "hangul"); // #id - id selector
+            $(".spring").css("color", "red"); //.class - class selector
+            $("#jquery>u").css("border", "1px solid green");
+        });
+    </script>
+</head>
+<body>
+    <h3>관심사항</h3>
+    <!-- ul#id>li*4 으로 아래 자동생성-->
+    <ul id="myFavorites">
+        <li><u>Java</u></li>
+        <li>Oracle</li>
+        <li class="spring">Spring</li>
+        <li id="jquery">j<u>Q</u>ery</li>
+    </ul>
+</body>
+</html>

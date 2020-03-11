@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Selector Filter Demo2</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //nth-of-child(부모관계) nth-of-type(형제들)
+        $(document).ready(function(){
+            $('li:first-of-type').css("background-color", "yellow"); //형제들 중 첫번째
+            $('li:last-of-type').css("background-color", "lime"); //형제들 중 마지막
+        });
+
+    </script>
+</head>
+<body>
+    
+    <ul>
+        <li>김치찌개</li>
+        <li>꽁치찌개</li>
+        <li>된장찌개</li>
+    </ul>
+    <ul>
+        <li>Apple</li>
+        <li>Lemon</li>
+        <li>Grape</li>
+    </ul>
+</body>
+</html>
+
+
+
+
