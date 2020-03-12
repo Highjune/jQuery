@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery remove() Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <style>
+
+         ul {
+            list-style-type : none;
+            display : inline;
+            overflow : hidden;
+           }
+        li {
+            float : left; 
+           } 
+        
+
+ /*display의 목적은 위와 같이 원래
+        inline요소 <---> block요소를 상호간으로 바꾸는 역할임
+        그런데 아래와 같이 숨기는 기능으로 주로 사용됨*/
+        
+        /* f12로 코드 보면서 하기 */
+        
+        ul>li:nth-child(2){
+            color:red;
+            /* display:none; 방 빼는 것임. 방 자체를 지우는 것. (지워진 것이 아니고 잠시 숨긴 것임) */
+            /* visibility : hidden; 방은 있는데 사람이 없는 것. (부피는 그대로 있음)<li></li>처럼 보임 */
+        }
+        
+
+    </style>
+
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        $().ready(function(){
+
+            // $("ul > li:nth-child(2)").css("visibility", "hidden"); //공간은 있는데 내용은 안보이게
+            // $("ul > li:nth-child(2)").css("display", "none"); //방 자체를 빼버림
+            
+            //=> css는 단순히 숨기는 것임
+
+            // $("ul > li:nth-child(2)").empty(); //공간은 있는데 내용만 안보이게(css3만 안 보임), css("visibility", "hidden")와의 차이는 f12보면 알 수 있다.
+            $("ul > li:nth-child(2)").remove(); //방 자체를 없애버림
+
+            //=> 이렇게 manipulation은 해당 트리 자체를 바꾸는 것임.
+            //대부분은 remove말고 empty를 사용한다.
+            //ex) 회원가입시 필수조건인 Id란에 입력을 하지 않았을시에 에러메시지 보이게 할 때
+        });
+
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript</li>
+    </ul>    
+
+
+</body>
+</html>
+
+
+
+
+
+

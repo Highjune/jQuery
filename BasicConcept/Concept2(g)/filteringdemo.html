@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery filtering Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //filter의 리턴은 다 jQuery. 그래서 다 .으로 이어쓸 수 있다.
+
+        $().ready(function(){      
+            $("div > p").first().css("color", "red");  //p중에 first
+            $("div > p").last().css("color", "blue");  //p중에 last
+            $("div > p").eq(2).css("color", "green");  //p중에 2번째
+            $("div > p").filter(".five").css("color", "pink");  // .five 클래스만 해당
+            $("div > p").not(".five").css("background-color", "pink");  // .five 클래스만 제외
+        });
+
+    </script>
+
+</head>
+<body>
+    <div>
+        <h1>텍스트 텍스트 텍스트</h1>
+        <P>텍스트 텍스트 텍스트</P>
+        <P>텍스트 텍스트 텍스트</P>
+        <P>텍스트 텍스트 텍스트</P>
+        <P class = "five">텍스트 텍스트 텍스트</P>
+        <P>텍스트 텍스트 텍스트</P>
+    </div>
+</body>
+</html>

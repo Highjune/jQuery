@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery prepend() Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //(tree구조를 조작) manipulation (insertion, remove, replace, ~~~)
+
+        // insert(insertion)를 위한 8개 메서드
+        // prepend
+        // prependTo
+        // appendTo
+        // appendTo
+        // Before
+        // insertBefore
+        // after
+        // insertAfter
+
+        //prepend() -제일 앞에 들어감(부모가 자식을), 
+        //prependTo()는 자식이 들어갈 곳을 고름(앞에 들어감)
+
+        //append() - 제일 뒤에 들어감(부모가 자식을),
+        //appendTo()는 자식이 들어갈 곳을 고름(뒤에 들어감)
+        
+        //=> 이것들은 다 form에서 활용가능. ex) 아이디를 넣지 않았을 떄 "ID 입력 안했습니다" 라고 보여주려고(element를 앞에 추가할 때). cf) alert()는 잘 안 쓴다.
+        
+        $().ready(function(){
+
+            // $("div").prepend("<p>jQuery</p>");   //jQuery를 이용하면 이렇게 간단, javascript로 하드코딩한다면 createlement로 p태그 만들고, node만들어서 태그 사이에 넣고, 그것을 다시 넣는 ~ 이런 일련의 과정을 4줄의 코드
+            // $("<p>jQuery</p>").prependTo("div"); //()은 target임. target은 selector, htmlstring, element, array, jQuery 다 가능
+
+            $("div").append("<strong>jQuery</strong>"); //append는 제일 뒤에 (부모가 자식을 골라서 제일 앞에)
+            // $("<h1>jQuery</h1>").appendTo("div"); //appendTo (자식이 들어갈 곳을 골라서 제일 앞에)
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+    <div>Hello, World</div>
+
+
+</body>
+
+
+</html>

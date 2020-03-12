@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery wrap() demo</title>
+    <script src ="js/jquery-3.4.1.js"></script>
+
+</head>
+<body>
+    
+    <!-- <strong>Hello, World</strong> 
+    <strong>HTML5/CSS3</strong> -->
+
+    1.<span>June</span>
+    2.<span>Hi</span>
+    3.<span>World</span>
+    4.<span>Hello</span>
+
+    <script>
+
+        //wrap - 개별을 다 감싼다(겉으로)
+        //wrapAll - 전체를 한번에 감싸는 것
+        //wrapInner - 개별을 다 감싼다 - 감싼것을 안으로 넣는다
+        
+        $().ready(function(){
+            // $("span").wrap("<h1></h1>");
+            // $("span").wrapAll("<h1></h1>");
+            $("span").wrapInner("<strong></strong>");
+        });
+
+    </script>
+    
+</body>
+</html>
+

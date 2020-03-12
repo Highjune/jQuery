@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery next()/prev()/slice() Demo</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        $().ready(function(){
+            // $("ul>li").slice(3).css("color", "red"); //js의 slice와 똑같다. 3번째(포함x)부터 나머지 다.
+            // $("ul>li").slice(3, 5).css("color", "red"); //js의 slice와 똑같다. 3번째부터 5전까지(처음과 끝은 포함X)
+
+            var idx = 0;
+            $("#next").click(function () {
+                var start = $("ul>li").eq(idx);
+                $("ul>li").eq(6).css({"background-color":'white'});
+                start.css({ "background-color" : (start.text()) });
+                start.prev().css({ "background-color": 'white' });
+                idx++;
+                if (start.text() == "purple") {
+                    start = $("ul>li").eq(0);
+                    idx = 0;
+                }
+            })
+
+            // $("ul>li").eq(1).next().css("background-color", "red"); //eq(1)-orange이므로 그 다음이면 yellow
+            // $("ul>li").click(function(){
+            //     $(this).css("background-color", $(this).text()); //this-이벤트를 발생한 객체. 여기서는 li
+            // });
+    });
+
+    </script>
+</head>
+<body>
+   <div><button id = "next">Next</button></div> 
+   <ul>
+        Rainbow
+       <li>red</li>
+       <li>orange</li>
+       <li>yellow</li>
+       <li>green</li>
+       <li>blue</li>
+       <li>navy</li>
+       <li>purple</li>
+   </ul>
+</body>
+</html>

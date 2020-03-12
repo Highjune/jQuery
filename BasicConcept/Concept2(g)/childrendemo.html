@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery childern() Demo</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    
+    <script>
+        //children() - 모든 자식들
+        //리턴타입이 jQuery이기 때문에 .으로 계속 붙여서 쓸 수 있다.
+
+        //sibilings() - 형제들
+
+        $().ready(function(){
+            $("div#container").children("p").css("color", "blue"); //$("div#container").는 selector // $("div#container").children()는 모든 자식
+                
+            // $("div > h3").siblings("p").css("color", "red"); //의미 : h3 형제들 중에 p태그만
+
+            // $("div#container").find("p").css("color", "green"); //find는 형제든 자손이든 다 찾는다. find는 selector를 찾는 것임. 그리고 그 selector밑에 해당하는 것 다.
+        });
+
+
+    </script>
+</head>
+<body>
+
+    <div id= "container">
+        <h3>텍스트<p>텍스트</p> 텍스트</h3>  <!--h3안에 있는 p태그는 h3의 자식이다.-->
+        <p>텍스트 텍스트 텍스트</p>
+        <div>텍스트 <P>텍스트</P>텍스트</div>  <!--div안에 있는 p태그는 div의 자식이다.-->
+        <p>텍스트 텍스트 텍스트</p>
+        <p>텍스트 텍스트 텍스트</p> 
+    </div>
+ 
+</body>
+</html>

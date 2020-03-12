@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery before() Demo</title>
+</head>
+<script src="js/jquery-3.4.1.js"></script>
+
+
+<script>
+    //형제 자식간의 관계에서.
+    //before() - ~에 무엇을
+    //insertBefore() - 무엇을 ~앞에
+
+    //after()
+    //insertAfter() 
+    
+    $().ready(function(){
+        $("h1").before("<p>june</P>"); //before()안의 내용을 h1앞으로 삽입
+        // $("p").insertBefore("h1"); //원래 h1 뒤의 p태그를 h1태그 앞으로 당김
+
+        // $("p").after("<h3>jQuery</h3>")
+    });
+
+</script>
+
+
+<body>
+
+    <h1>Header</h1>
+    <p>Hello, World</p>
+    
+</body>
+
+</html>
+

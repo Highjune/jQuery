@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery each() Demo</title>
+    <script src ="js/jquery-3.4.1.js"></script>
+    <script>
+        
+        //each 반복문
+        //each()안에는 function을 써야 하고, 자동적으로 생성되는 index를 변수로 받아서 활용할 수 있다.
+        
+        $().ready(function(){
+            
+            //그냥 for반복문
+            // var lis = $("ul>li");
+            // for(var i = 0 ; i <lis.length ; i++) {
+            //     console.log(i+" : "+ lis[i].innerText);
+            //}
+
+            //each 반복문(jQuery반복문) => for반복보다 이것을 더 쓰자
+            $("ul>li").each(function(idx) {
+                console.log(idx + " : " + $(this).text());  //console로 찍었기 때문에 f12의 colsole에서 결과 확인해야 함.
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li>Lemon</li>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Manago</li>
+        <li>Grape</li>
+    </ul>
+
+
+    
+</body>
+</html>

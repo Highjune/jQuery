@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery css() Demo</title>
+
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //+-누르면 본문글씨크기 조절
+
+    
+        $().ready(function(){
+            // alert($("div").css("font-size")); //16px임을 알았음
+            // var size = "16px";
+
+            
+            $("button:eq(0)").click(function(){
+            // $("button:eq(0)")대신 $("button:first-of-type") 써도 됨
+                var numSize = parseInt($("div").css("font-size")); //css()의 get (key만 썼을 때 )
+                numSize++; 
+                $("div").css("font-size", numSize + "px"); //css()의 set(key와 값)같이 사용했을 때
+            });
+
+
+            $("button:eq(1)").click(function(){
+                var numSize = parseInt($("div").css("font-size"));
+                numSize--;
+                $("div").css("font-size", numSize + "px");
+            });
+            
+            $("button:eq(2)").click(function(){
+                var numSize = parseInt($("div").css("font-size"));
+                $("div").css("font-size", "16px");  //원래의 값이 16px이니까.
+            });
+        });
+
+
+    </script>
+    
+</head>
+
+<body>
+    <button>+</button><button>-</button><button>초기화</button>
+    <div>
+        
+    <p>  죽는 날까지 하늘을 우러러
+         한 점 부끄럼이 없기를,
+         잎새에 이는 바람에도
+         나는 괴로워했다.
+         별을 노래하는 마음으로
+         모든 죽어가는 것을 사랑해야지
+         그리고 나한테 주어진 길을
+         걸어가야겠다. </p>
+    <p>  오늘 밤에도 별이 바람에 스치운다.</p>  
+
+    </div>
+</body>
+</html>

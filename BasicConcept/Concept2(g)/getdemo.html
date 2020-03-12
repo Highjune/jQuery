@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery get() Demo</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    
+    <script>
+
+        //get()보다는 eq()를 더 많이 씀
+        //get은 리턴이 Element임. jQuery객체가 아니다. jQuery라면 붙여서 .text등 붙여서 바로 사용가능하지만... jQuery객체가 아니라서 불가능.
+
+        //get으로
+        $().ready(function(){
+            // var str = $("#google").get(0).tagName;  //id가 1개 이므로 여기서 get은 [0]번째밖에 없음.
+            // alert(str);
+            // alert($("ul>li").get(2).innerText); //get()는 li를 말하는 것임. get은 리턴이 element라서 js로 innerText를 쓴 것임 (dom은 html임)
+            //
+        });
+
+        //eq()로
+        $().ready(function(){
+            alert($("ul>li").eq(3).text()) //eq는 리턴이 jQuery라서 text()를 바로 붙여서 사용가능
+        });
+
+    </script>
+</head>
+<body>
+    <a href="http://www.google.com" id="google">구글</a>
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+        <li>Water</li>
+    </ul>
+</body>
+</html>

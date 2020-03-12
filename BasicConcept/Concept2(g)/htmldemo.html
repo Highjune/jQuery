@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Attribute/CSS Demo</title>
+    <style>
+        input[type='number']{width: 50px;}
+        opiton{font-size:2em;}
+    </style>
+    
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+//계산기 만들기
+
+// --우선적으로 jQuery말고 js코드로만 정석으로 코딩-
+/*
+        window.onload = function(){
+            document.getElementById("mybutton")
+            .addEventListener("click", function(){
+                var first = parseInt(document.getElementById("first").value);
+                var second = Number(document.getElementById("second").value); 
+                
+                //숫자 변환하는 것은 2가지가 있다.
+                //1. parseInt(숫자이외에 cm mm 등이 들어가도 변환 가능)
+                //2. Number생성자는 오로지 문자형 숫자만 들어가야지 가능하다
+
+                var select = document.getElementById("op");
+                var op = select.options[select.selectedIndex].text; //select의 option에서 선택한(select.selectedIndex]의 값(text)
+                var result = "<font size = '6' color='red'>";
+                switch(op) {
+                    case '+': result += first + second; break;
+                    case '-': result += first - second; break;
+                    case 'X': result += first * second; break;
+                    case '/': result += first / second; break;
+                }
+                result += "</font>"
+                document.getElementById("result").innerHTML = result; ==> 복잡
+                //result 는 <font></font>태그 안에 값을 넣은 것임
+            }, false)
+        }
+*/
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//jQuery 축약버전. document 생략
+//$ -> jQuery 의미
+//$(). => 객체가 됨
+
+        $().ready(function(){
+            $("#mybutton").click(function(){  //이벤트소스.이벤트타입.이벤트핸들러
+                var first = parseInt($("#first").val()); //val()은 value값 뽑아내는 함수. text()로 innertext내용을 뽑아서 써도 되긴 한다.
+                var second = parseInt($("#second").val());
+                var op = $(":selected").val(); //select태그에서 선택된 것(:selected), 그리고 그것의 값(val())
+                var result = "<font size = '6' color='red'>";
+                switch(op) {
+                    case '+': result += first + second; break;
+                    case '-': result += first - second; break;
+                    case 'X': result += first * second; break;
+                    case '/': result += first / second; break;
+                }
+                result += "</font>";
+                $("#result").html(result); // innerHTML에 해당하는 메소드가 바로 html(); ==> 엄청 간단, text()메서드와 달리 text든 태그든 다 적용가능
+                // $("#result").text(result); //text()는 태그가 안에 포함되면 적용이 안 된다. 태그 제외하고는 다 가능하다(numbe, string, boolean)z1
+                //html()에도 get set 다 있다.
+                //위의 방식은 set
+                //태그포함하면 get
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <input type="number" id="first">
+
+    <select id="op">
+        <option value = "+">+</option>
+        <option value = "-">-</option>
+        <option value = "X">X</option>
+        <option value = "/">/</option>
+    </select>
+
+    <input type="number" id="second">
+
+    <button id = "mybutton">=</button>
+
+    <span id="result">0</span>   <!--사이의 값이 innter text인데 이것을 html()함수로 활용하는 것~ -->
+
+
+</body>
+</html>

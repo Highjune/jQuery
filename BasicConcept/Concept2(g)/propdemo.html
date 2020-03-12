@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery prop() Demo</title>
+    <!--
+    .attr()는 다양한 값
+    .prop()는 2가지의 값으로 한정되는 것들만(enabled <-> disabled), (checked <-> unchecked) 등 true false로 값이 나온다
+    -->
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        $().ready(function(){
+            // $("#male").attr("checked", "checked"); //아이디가 male인 값을 찾아서 checked의 속성에 checked를 준다. 
+            $("#female").prop("checked", true); //이런식으로 true/false로 스위치를 켠다.
+
+        });
+
+    </script>
+</head>
+
+
+<body>
+    Gender : <input type="radio" name="gender" id = "male"> 남성 
+             <input type="radio" name="gender" id = "female"> 여성
+</body>
+
+
+</html>
