@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Event Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){      
+            $(":password").focus(function(){  //focus를 맞출 떄 // :x 는 속성값이 모든x인 것들
+                $(this).after("<p>패스워드는 필수 항목입니다.</p>"); //this는 password임.
+                $(this).next().css({"color":"red", "front-weight":"bolder"});
+            }).blur(function(){ //focus를 잃을 떄 
+                $("p").remove(); //넣은 p태그를 제거
+            }); //focus를 맞출 때, 잃을 때
+            
+        });
+    
+
+    </script>
+
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="http://www.naver.com" method="get"> 
+    <ul>
+        <li>ID :                     <input type="text"></li>
+        <li>Password :               <input type="password" name = "" id = ""></li>
+        <li>Password(confirm) :      <input type="password" name = "" id = ""></li>
+        <li>Name :                   <input type="text"> </li>
+
+        <li><button type = "button">가입하기 </button></li>  
+    </ul>
+    </form>
+
+</body>
+</html>

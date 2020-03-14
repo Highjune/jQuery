@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+    // button 과 a의 비교
+    // eventdemo1와 비교
+    // a로
+
+    //포인트) eventdemo1처럼 button으로 처리할 때는 괜찮은데, 링크(a)가 들어있는 이벤트를 사용할 때는 href가 먹히니까 막아줄 필요가 있다.(페이지 안 넘어가도록)
+
+
+    //cf) 나중에 게시판 작성시, 특정 이미지를 클릭했을 때 수정, 삭제 등의 기능 구현할 경우 클릭만 하면 이벤트가 안 먹으니까 이미지를 중심으로 양쪽에 링크를 걸어서 처리할 때가 있다.
+
+    //a href 막는 방법이 2가지가 있다
+    //1. 이벤트에서 return false;를 함으로써 전파를 막는다
+    //2. void연산자 사용. 링크에 "javascript:void(0);" 를 넣음으로써 막는다. 이 처리를 하면 앵커는 변화X, 클릭이벤트만 활성된다. 
+    //ex) <a href = "javascript:void(0);"> 클릭해도 링크가 먹히지 않는다.
+
+        $(function() {
+            $("a").click(function(){ // 이렇게 anchor에 click이벤트를 주면 이벤트가 2가지가 일어난다.
+                                     // 1. 그림변경하기 클릭의 a href 링크 넘어가기 (클릭하면 해당된 링크로 넘어가버린다. 페이지가 바뀜)
+                                     // 2. jquery의 click이벤트 
+                $("img").attr({
+                    "src" : "images/bin.jpg",
+                    "width" : "512px",
+                    "height" : "316px"
+                });
+                return false; 
+                //사진만 바뀔뿐 페이지가 넘어가지 않는다.
+                //이벤트가 전파가 안된다.cf) 전파-bubble up, bubble down
+                //클릭만 하고 이벤트가 멈추는 것임. 원래는 클릭이벤트가 일어나고 페이지가 바뀌어야 하는데, 클릭이벤트만 이루어지고 전파를 멈춤.
+            }  );
+        });
+
+    </script>
+</head>
+<body>
+
+    <!-- <div><a href = "images/bin.jpg">그림변경하기</a></div>  cf)  a는 속성으로 href를 반드시 써야 함 -->
+    <!-- <div><a href = "javascript:void(0);">그림변경하기</a></div> 여기서 javascript:void(0) 값 주면 위에서 return false는 안해줘도 됨 -->
+
+    <div><a href = "images/bin.jpg">그림변경하기</a></div>  <!-- cf)  a는 속성으로 href를 반드시 써야 함 -->
+    <div><img src = "images/sea.jpg" width = "512" height ="316"></div>
+</body>
+</html>

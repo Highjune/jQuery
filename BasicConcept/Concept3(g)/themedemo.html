@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Theme Demo</title>
+    <!--UI소스 들고와서 붙이기-->
+    <!--https://jqueryui.com/-->
+
+
+    <!--css는 link들고오는 것임-->
+    <link rel = "stylesheet" href = "css/query-ui.css"> <!--기본UI, css폴더에 따로 넣어야 됨-->
+    <link rel = "stylesheet" href = "css/jquery-ui.theme.css"> <!--내가 선택한 테마, css폴더에 따로 넣어야 됨-->
+
+    <!--jQuery는 script로-->
+    <script src ="js/jquery-3.4.1.js"></script> <!--jQuery를 반드시 제일 위(script 중에서)에 적어야 된다. 이 jQuery가 있어야만 위의 qQuery ui들이 가능하다.-->
+    <script src = "js/jquery-ui.js"></script> 
+
+    <script>
+    //위젯 (jquery ui에서 제공)
+        $(function(){
+            $("#mycalendar").datepicker({ //date 예약에서 많이 쓰기
+                dateFormat : "y-mm-dd"
+            }); 
+        });
+    </script>
+
+
+</head>
+<body>
+
+
+    Today : <input type="text" id="mycalendar"><br/>
+    <!-- Today : <input type="datetime-local"><br/> datetime-local은 원래 html5에서 제공하는 것임 -->
+    Today : <input type="date"><br/> 
+
+
+</body>
+</html>

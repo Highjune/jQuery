@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form Selector Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //form태그와 이벤트를 같이 배우는 것은 보통의 웹 페이지는 다 form안에서 이루어지기 때문에
+
+        //jQuery쓰는 형태가 다른 이유는 사람들마다 쓰는 습관이 달라서.
+        //기본버전 
+        // $(document).ready(function(){});   // jQuery(function(){}); -->심지어 이렇게 쓰는 사람도 있다.($를 jQuery그대로)
+        //중간버전  
+        // $().ready(function(){});    
+        //축약버전
+        // $(function(){});
+    
+
+        //오늘은 축약버전으로 다 ~
+        $(function(){
+            $("button").click(function(){ 
+                // alert($(":checked").val())  //:checked selector
+                // checked된 것의 value값(checked or selected). 여러개의 값이 checked했을 때는 1번째 것의 값만.
+
+                // var idx = document.getElementById("editors").selectedIndex; 
+                // alert(document.getElementById("editors").options[idx].value); //예전방식임
+                //위의 2줄을 아래와 같이 selected를 활용하면 간단.
+
+                // alert($(":selected").val()); //selected는 select에서 선택된 것들만, checked는 chekced, selected된것들 다 가능.
+                // alert($("#editors>option:selected").val()); //위와 같다.
+
+                var editors = [];
+
+                $("#editors>option").each(function(idx){ //반복문 each // 
+                    if(idx != 0 ) // 0번은 "---선택---" 이니까.
+                        //alert($(this).val()); //반복을 차례로 돌면서 자신의 차례가 되었을 때의 것 - this
+                        if($(this).prop("selected")) //selected는 checked로 대체 불가. 
+                        //attr()은 속성의 속성을 그대로 읽어옴 / prop()는 속성의 boolean 값을 읽어옴.
+                        //ex) attr() : checked => checked // prop() : checked가 되었으면 true 
+                        editors.unshift($(this).val()); //뒤에서 추가하는 것 push cf) 앞에서 추가 : unshift
+                }); 
+                alert(editors);
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <form action=""> <!--action값을 따로 주지 않으면 기본값으로 form자체가 action의 주체가 된다.-->
+        Editor?
+        <select name = "editors" multiple size="7" id = "editors"> <!--multiple은 여러개 선택할 수 있도록(ctrl키로 여러개 클릭) / size는 여러개 보여주도록-->
+
+            <option value = "">---선택---</option>
+            <option value = "Notepad">Notepad</option>
+            <option value = "Eclipse">Eclipse</option>
+            <option value = "IntelliJ">IntelliJ</option>
+            <option value = "Visual Studio Code">Visual Studio Code</option>
+            <option value = "Sublime Text">Sublime Text</option>
+            <option value = "Editplus">Editplus</option>
+            
+        </select>
+    
+    <!-- <form action="">
+        Hobby : <input type = "checkbox" name = "hobby" value = "낚시">낚시&nbsp;
+                <input type = "checkbox" name = "hobby" value = "테니스">테니스&nbsp;
+                <input type = "checkbox" name = "hobby" value = "축구">축구&nbsp;
+                <input type = "checkbox" name = "hobby" value = "스타">스타&nbsp;
+                <input type = "checkbox" name = "hobby" value = "요리">요리&nbsp;
+                <input type = "checkbox" name = "hobby" value = "운동">운동&nbsp; -->
+
+        <!-- Gender : <input type="radio" nane="gender" value="male">남성 <!--value값이 서버로 넘어가는 것임. 원래는 value에 숫자값을 줘서 보통 숫자를 넘김.-->
+                 <!-- <input type="radio" nane="gender" value="female">여성 <br/> --> 
+                 
+        <button type = "button">Click me!</button> <!--type을 따로 주지 않으면 submit이 된다. submit이라면 서브로 보내주고 나서 클릭한 것이 초기화가 된다-->                
+        
+    </form> 
+
+
+
+</body>
+</html>

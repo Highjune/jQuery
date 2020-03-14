@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery bind() Demo</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: inline;
+        }
+        
+    </style>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+
+        //bind() 이벤트를 특정 태그에 전체적으로 attach 
+        //unbind() 이벤트를 특정 태그에 전체적으로 unattach
+        //둘다 deprecated되어 있어서 나중에 on/off를 쓰는 것이 좋을 것.w
+
+        $(function () {
+            $("input[type='radio']").change(function () { //input태그의 type이 radio 의 선택이 변화(change)가 있다면.
+                if ($(this).val() == "true") { //클릭이 가능하다면! /   this-바로 윗줄의 radio 버튼
+                    $('button').bind('click', function () { //bind - "click"을 모든 button에 가능하게 해버림.
+                        var src = $(this).attr('title'); //this-바로 윗줄의 button임
+                        $('img').attr({
+                            "src": src,
+                            "width": "900px",
+                            "height": "700px"
+                        });
+                    });
+                } else { //클릭이 불가능하다면! 
+                    $('button').unbind("click"); //unbind - 모든 이벤트를 unblind
+
+                }
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+
+    <div>
+        <input type="radio" name="flag" value="true">Click Enable &nbsp;&nbsp;
+        <input type="radio" name="flag" value="false">Click Disable
+    </div>
+
+    <hr>
+
+    <ul> <!--images폴더에 해당하는 1.jpg 2.jpg 3.jpg 4.jpg 4개의 사진이 있어야 동작됨-->
+        <li><button title="images/1.jpg">세경1</button></li>
+        <li><button title="images/2.jpg">세경2</button></li>
+        <li><button title="images/3.jpg">세경3</button></li>
+        <li><button title="images/4.jpg">세경4</button></li>
+    </ul>
+
+    <hr>
+
+    <div style="width:512px;height:316px;border:1px solid black">
+        <img src="">
+    </div>
+
+</body>
+
+</html>

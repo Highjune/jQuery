@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Form Selector Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+     
+        //계산기 만들기
+        
+        $(function(){
+            var answer = [5+6, 5-6, 5*6, 5/6, 5%6];
+            var right = null;
+            var wrong = null;
+            $("button").click(function(){
+                $(":input").each(function(idx){ //버튼까지 포함해서 총 6개  //:input은 데이터를 입력받는 모든 태그를 다 포괄함.(button, text, number 등)
+                    if(idx !=5 ) // 버튼 제외 0~4까지만.
+                        if($(this).val() == answer[idx]) right++;//this는 input임
+                        else {
+                            $(this).css({"background-color":"red", "color":"white"});  
+                            wrong++;
+                        }
+                });
+            //루프 다 돌면
+            alert("귀하는 " + (5 - wrong)*20 + "점입니다.");
+            });
+            
+        });
+
+    </script>
+</head>
+<body>
+    <form action="">
+
+        <div>1. 5 + 6 = <input type = "number"></div>
+        <div>2. 5 - 6 = <input type = "number"></div>
+        <div>3. 5 * 6 = <input type = "number"></div>
+        <div>4. 5 / 6 = <input type = "number"></div>
+        <div>5. 5 % 6 = <input type = "number"></div>
+        <div><button type = "button">Result</button>></div> 
+
+    </form> 
+
+
+
+</body>
+</html>

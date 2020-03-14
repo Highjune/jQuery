@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects Demo</title>
+
+    <style>
+        div{
+            width : 500px;
+            height : 500px;
+            background-color: red;
+            display:none; /*기본값은 안 보이게 숨겨놓음*/
+        }
+
+    </style>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //EFFCTS 
+        //show - hide - toggle(옵션)
+        //fadeIn - fadeOut - fadeTo(옵션)
+        //slideDown - slideUp - slideToggle(옵션)
+        //animate (이거 하나로 다 가능)
+
+        $(function(){
+            $("button").first().bind("click", function(){ //show버튼
+                // $('img').show(400); //show의 첫번쨰 parameter 는 duration(얼마만큼의 지속시간(보이는 시간, 숨기는 시간)). 400(0.4초) - default
+                // $('img').show("slow"); //천천히 나오게
+                // $('img').show("fast"); //빠르게 나오게
+                // $('img').slideDown(2000); //밑으로 나오게
+                // $('img').fadeIn(2000); //서서히 나오게
+                
+            });
+            $("button").last().bind("click", function(){ //hide버튼
+                // $('img').hide(1000);
+                // $('img').slideUp(2000); //위로 나오게
+                $('img').fadeOut(2000); //서서히 사라지게
+
+            });
+        });
+
+    </script>
+</head>
+<body>
+
+    <p><button>Show</button><button>Hide</button></p>
+
+    <hr>
+
+    <div></div>
+
+    <img src="images/3.jpg" width="500" height="500">
+
+</body>
+</html>

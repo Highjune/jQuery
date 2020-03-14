@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery one() Demo</title>
+    <style>
+        ul { list-style-type : none; }
+        li { display : inline; }
+    </style>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //one() - 한번만 가능
+        
+        $(function(){
+            $('button').one('click', function(){
+                var src = $(this).attr("title"); //이미지의 경로
+                $('img').attr({
+                    "src" : src,
+                    "width" : "900px",
+                    "height" : "700px"
+                });
+            });    
+        });
+
+    </script>
+</head>
+<body>
+
+    <ul>
+
+        <li><button title="images/1.jpg">세경1</button></li>
+        <li><button title="images/2.jpg">세경2</button></li>
+        <li><button title="images/3.jpg">세경3</button></li>
+        <li><button title="images/4.jpg">세경4</button></li>
+    
+    </ul>
+    
+    <hr>
+    
+    <div>
+        <img src="images/3.jpg" width="600">
+    </div>
+    
+</body>
+</html>
+
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+    // button 과 a의 비교
+    // eventdemo2와 비교
+    // button으로
+
+        $(function() {
+            $("button").click(function(){
+                $("img").attr({
+                    "src" : "images/bin.jpg",
+                    "width" : "512px",
+                    "height" : "316px"
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <div><button>Change</button></div>
+    <div><img src = "images/sea.jpg" width = "512" height ="316"></div> <!--form이 없을떄의 button은 일반 버튼, form이 있을 때의 button은 submit(서버로 전송) -->
+</body>
+</html>

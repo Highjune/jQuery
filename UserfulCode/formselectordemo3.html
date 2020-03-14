@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery EVENT</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        //userful code
+        //비밀번호 일치, 불일치
+
+
+        $(function () {
+
+            $("#pw").focus(function () { //포커스를 얻었을 때
+                $(this).next().remove()
+                $(this).after("<span> 패스워드는 필수 항목입니다 </span>")
+                $("span").css({ "color": "red", "font-weight": "bolder" })
+            }).blur(function () {      $(this).next().remove()      }) //얻은 포커스를 잃었을 때
+
+            $(":password").keyup(function () {
+                var org = $("#pw").val()
+                var con = $("#pwc").val()
+                $(this).next().remove()
+                if (org != con) {
+                    $(this).after("<span> 패스워드와 일치하지 않습니다 </span>")
+                    $("span").css({ "color": "red", "font-weight": "bolder" })
+                }
+                else {
+                    $(this).next().remove()
+                    $(this).after("<span> 패스워드와 일치합니다 </span>")
+                    $("span").css({ "color": "blue" })
+                }
+            })
+
+            $(":button").click(function () {
+
+            })
+        })
+        
+    </script>
+</head>
+
+<body>
+    <form action="">
+
+        <table>
+
+            <tr>
+                <td>
+                    PW
+                </td>
+                <td>
+                    <input type="password" id="pw"> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    PW(confirm)
+                </td>
+                <td>
+                    <input type="password" id="pwc">
+                </td>
+            </tr>
+
+        </table>
+
+        <button type="button">확인</button>
+    </form>
+
+</body>
+
+</html>

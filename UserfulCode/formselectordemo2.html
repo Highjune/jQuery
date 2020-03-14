@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQery Form Selector Demo</title>
+    <script src = "js/jquery-3.4.1.js"></script>
+    <script>
+        //useful code
+        //회원가입
+
+/*
+        $(function(){
+            
+            $(":text").focus(function(){
+                $(this).after("<span>june.</span>"); // this: focus된 것
+                $("span").css("color", "red"); //위의 span 태그에 css적용
+            });
+  
+            $(":text").keyup(function(){  // 누른 키보드가 올라올 때! (즉 값을 입력시작할 때)
+                $(this).next().remove(); // "필수 항목입니다" 를 지우는 것
+                if($(this).val().length <= 6) {
+                $(this).after("<span>최소 6자리 입력하세요</span>"); // this: focus된 것
+                $("span").css("color", "blue"); //위의 span 태그에 css적용
+            }else{
+                $(this).next().remove();
+            }s
+            });
+
+            $(":password").focus(function(){
+                $(this).after("<span>필수 항목입니다.</span>"); // this: focus된 것
+                $("span").css("color", "red");
+            });
+        });
+*/
+
+
+/*
+        $(function(){
+            $(":text").val("필수 항목입니다.").css("color", "#CCC");
+            $(":text").focus(function(){
+                $(this).val("").css("color", "#090"); //글씨색깔. 지금은 이것을 잘 안 쓴다. placeholder가 있기 때문에. 
+            }).blur(function(){    //blur(function()) - 포커스를 잃으면 . focus()의 리턴타입이 jQuery이기 때문에 .로 이어서 blur를 연결가능
+                if(!$(this).val()){ //값이 없을 때
+                    $(this).val("필수 항목입니다.").css("color", "red");
+                }
+            }); 
+        });
+*/
+
+
+        // 넣을 항목을 넣지 않고 가입하기를 눌렀을 때 알림창.
+        $(function(){
+          $("button").click(function(){   // 
+            //   var form = document.getElementsByTagName("form")[0];
+            //   alert(form.action); //form.action => form의 action을 읽어오는 properties //여기서 form은 위의 변수 var form임.
+            //   alert(form.method); //form.method => form의 method 읽어오는 properties
+                
+                //간편한 방법
+            //   alert($("form").attr("action")); //get
+            //   alert($("form").attr("method")); //get
+                    
+                //submit하려면 action, method가 필요
+                //body에서의 form에서 action과 method를 주지 않은 경우 아래와 같이 set해줄 수 있다.
+            //   $("form").attr("method", "GET"); //set
+            //   $("form").attr("action", "http://www.naver.com"); //set
+            //   $("form").submit(); //direct로 바로 submit하는 경우는 드물다. 내용 등을 다 채우고 나서 submit
+
+            if(!$("#userid").val()){  //userid 를 넣지 않았다면
+                alert("가입하실 아이디를 넣지 않았습니다.");
+                $("#userid").focus();
+                return flase; //이벤트 전파막음(submit막음) - 이것을 하지 않으면 naver로 넘어가버린다. 
+                //원래의 목적은 id를 넣지 않았을 떄 alert경고창 뜨고 나서 userid란에 focus가 가야 되는데 그냥 페이지가 넘어가버린다. 
+                //그래서 링크는 활성화 안되고 이벤트만 가능하도록.
+            }
+            $("form").attr("action", "http://www.naver.com");
+            $("form").submit();
+          });
+        });
+
+
+    </script>
+
+</head>
+<body>  
+    <h1>회원가입</h1>
+
+    <form action="http://www.naver.com" method="get"> 
+    <ul>
+
+        <li>ID :                <input type="text" id = "userid">                                 </li>
+        <li>Password :          <input type="password" name = "" id = "passwd">     </li>
+        <li>Password(confirm) : <input type="password" name = "" id = "passwd1">    </li>
+        <li>Name :              <input type="text">                                 </li>
+
+        <li><button type = "button">가입하기 </button></li> 
+
+    </ul>
+    </form>
+</body>
+</html>
+
+
+
+
+
