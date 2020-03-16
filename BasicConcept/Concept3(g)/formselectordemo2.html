@@ -51,7 +51,7 @@
 
         // 넣을 항목을 넣지 않고 가입하기를 눌렀을 때 알림창.
         $(function(){
-          $("button").click(function(){   // 
+          $("button").click(function(){   //
             //   var form = document.getElementsByTagName("form")[0];
             //   alert(form.action); //form.action => form의 action을 읽어오는 properties //여기서 form은 위의 변수 var form임.
             //   alert(form.method); //form.method => form의 method 읽어오는 properties
@@ -66,7 +66,8 @@
             //   $("form").attr("action", "http://www.naver.com"); //set
             //   $("form").submit(); //direct로 바로 submit하는 경우는 드물다. 내용 등을 다 채우고 나서 submit
 
-            if(!$("#userid").val()){  //userid 를 넣지 않았다면
+            if(!$("#userid").val()){  //JavaScript에서는 null, undefined 모두 false라고 정함.
+                                        //그래서 값을 넣지 않으면 당연히 null일 것이고 그렇기 때문에 false입니다.
                 alert("가입하실 아이디를 넣지 않았습니다.");
                 $("#userid").focus();
                 return flase; //이벤트 전파막음(submit막음) - 이것을 하지 않으면 naver로 넘어가버린다. 
